@@ -14,8 +14,8 @@ function draw(){
     background(bgcolor[0], bgcolor[1], bgcolor[2]);
 
     backgroundcol();
-
     mountain();
+    effects();
 }
 
 function backgroundcol(){
@@ -42,4 +42,15 @@ function mountain(){
     triangle(width/3*1.7,height, width/6*5,height/6*5, width/3*2.1,height);
     fill(243, 213, 133, alpha);
     triangle(width/3*2.1,height, width/6*5,height/6*5, width,height);
+}
+
+function effects(){
+    let size = 70 / width * mouseX + 30;
+    let strokeWidth = (width/120-width/120*0.6) / width * mouseX + (width/120-width/120*0.4);
+    let rotation = 360 / width * mouseX;
+
+    stroke(255, 255, 255, 120);
+    strokeWeight(strokeWidth);
+    noFill();
+    arc(width/2,height/2, size, size, radians(rotation), radians(rotation + 290));
 }
