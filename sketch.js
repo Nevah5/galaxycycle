@@ -1,5 +1,5 @@
-const color1 = [255, 203, 242];
-const color2 = [192, 253, 255];
+const color1 = [224, 195, 252];
+const color2 = [0, 24, 69];
 let cur_color = [
     (color1[0] + color2[0]) / 2,
     (color1[1] + color2[1]) / 2,
