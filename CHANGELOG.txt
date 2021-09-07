@@ -1,0 +1,5 @@
+338f0c45af4c8e664124cdb51cb9965416a343f9 Removed the lightning from the canvas
+b92558387944774fe4b835460e2d66a80a24de7c Added a background to the canvas
+aa4b51a9f9dd443777802ca37ea9da8fd27a2f60 Added lightning to the canvas
+45b23171f28507ece624960dba7dfb53c4abdc12 Added clouds to the canvas
+e9f3fd6bb6fdfc65bdea339b95fc8685f25d1ce7 Imported p5.js libary
