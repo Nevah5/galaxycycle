@@ -37,27 +37,27 @@ function bgeffects(){
     stroke(255, 255, 255, alpha);
     noFill();
 
-    //first arc spiral (near middle, counter-clockwise)
-    let d = width / 3.5; //distance
-    let a = radians(-260) / width * mouseX + radians(70); //angle
+    // first arc spiral (near middle, counter-clockwise)
+    let d = width / 3.5; // distance
+    let a = radians(-260) / width * mouseX + radians(70); // angle
     x = cos(a) * d + width / 2;
     y = sin(a) * d + height / 2;
 
     arc(x, y, r, r, radians(0), radians(230));
 
 
-    //second arc spiral (counter-clockwise)
-    d = width / 6; //distance
-    a = radians(-180) / width * mouseX + radians(50); //angle
+    // second arc spiral (counter-clockwise)
+    d = width / 6; // distance
+    a = radians(-180) / width * mouseX + radians(50); // angle
     x = cos(a) * d + width / 2;
     y = sin(a) * d + height / 2;
 
     arc(x, y, r, r, radians(100), radians(330));
 
 
-    //third arc spiral (clockwise)
-    d = width / 3.5; //distance
-    a = radians(240) / width * mouseX + radians(120); //angle
+    // third arc spiral (clockwise)
+    d = width / 3.5; // distance
+    a = radians(240) / width * mouseX + radians(120); // angle
     x = cos(a) * d + width / 2;
     y = sin(a) * d + height / 2;
 
@@ -65,37 +65,39 @@ function bgeffects(){
 }
 
 function sun(){
-    stroke(250, 237, 203);
-    strokeWeight(1);
+    noStroke();
     fill(250, 237, 203);
     let x = width / 2;
     let y = height / 2;
-    let s = width / 100 / width * mouseX + width / 80; //size
+    let s = width / 30 / width * mouseX + width / 80; // size
+    let alpha = 120 / width * mouseX + 40;
 
-    //first arc spiral (near middle, counter-clockwise)
-    let d = 800 / width * mouseX + 100; //distance
-    let a = radians(-140) / width * mouseX + radians(0); //angle
+    // first arc spiral (near middle, counter-clockwise)
+    let d = 800 / width * mouseX + 100; //  distance
+    let a = radians(-140) / width * mouseX + radians(0); // angle
     x = cos(a) * d + width/3*2.1;
     y = sin(a) * d + height;
 
-    triangle(x - s, y, x, y - s * 2, x + s, y); //top part
-    triangle(x - s, y, x, y + s * 2, x + s, y); //bottom part
+    fill(250, 237, 203); // lighter
+    fill(243, 213, 133, alpha); // darker
+
+    triangle(x - s, y, x, y + s * 1.7, x + s, y);
 }
 
 function mountain(){
     let alpha = 255 - (100 / width * mouseX);
     noStroke();
-    //first mountain
+    // first mountain
     fill(250, 237, 203, alpha);
     triangle(width*-0.1,height, width/5.6,height/4*2.8, 0,height);
     fill(243, 213, 133, alpha);
     triangle(0,height, width/5.6,height/4*2.8, width/2.7,height);
-    //second mountain
+    // second mountain
     fill(250, 237, 203, alpha);
     triangle(width/6,height, width/2,height/2, width/3,height);
     fill(243, 213, 133, alpha);
     triangle(width/3,height, width/2,height/2, width/3*2.5,height);
-    //third mountain
+    // third mountain
     fill(250, 237, 203, alpha);
     triangle(width/3*1.7,height, width/6*5,height/6*5, width/3*2.1,height);
     fill(243, 213, 133, alpha);
