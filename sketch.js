@@ -8,12 +8,14 @@ let bgcolor = [
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
+    angleMode(degrees);
 }
 
 function draw(){
     background(bgcolor[0], bgcolor[1], bgcolor[2]);
 
     backgroundcol();
+    bgeffects();
     mountain();
     effects();
 }
@@ -53,9 +55,42 @@ function effects(){
     strokeWeight(strokeWidth);
     noFill();
     //first arc
-    arc(width/5.6,height/4*2.8, size, size, radians(rotation + 180), radians(rotation + 150));
+    arc(width / 5.6, height / 4 * 2.8, size, size, radians(rotation + 180), radians(rotation + 150));
     //second
-    arc(width/2,height/2, size, size, radians(rotation), radians(rotation + 290));
+    arc(width / 2, height / 2, size, size, radians(rotation), radians(rotation + 290));
     //third arc
-    arc(width/6*5,height/6*5, size, size, radians(rotation + 50), radians(rotation + 320));
+    arc(width / 6 * 5, height / 6 * 5, size, size, radians(rotation + 50), radians(rotation + 320));
+}
+
+function bgeffects(){
+    strokeWeight(width / 240);
+    let x = width / 2;
+    let y = height / 2;
+    let r = width / 140 / width * mouseX;
+
+    //first arc spiral (near middle, counter-clockwise)
+    let d = width / 3.5; //distance
+    let a = radians(-260) / width * mouseX + radians(70); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(0), radians(230));
+
+
+    //second arc spiral (counter-clockwise)
+    d = width / 6; //distance
+    a = radians(-180) / width * mouseX + radians(50); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(100), radians(330));
+
+
+    //third arc spiral (clockwise)
+    d = width / 3.5; //distance
+    a = radians(240) / width * mouseX + radians(120); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(280), radians(510));
 }
