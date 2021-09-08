@@ -28,12 +28,14 @@ function backgroundcol(){
 }
 
 function bgeffects(){
-    strokeWeight(width / 240);
-    stroke(255, 255, 255, 120);
-    noFill();
     let x = width / 2;
     let y = height / 2;
     let r = width / 140 / width * mouseX;
+    let alpha = width / 10 / width * mouseX;
+
+    strokeWeight(width / 240);
+    stroke(255, 255, 255, alpha);
+    noFill();
 
     //first arc spiral (near middle, counter-clockwise)
     let d = width / 3.5; //distance
