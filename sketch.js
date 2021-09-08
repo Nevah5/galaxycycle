@@ -52,5 +52,10 @@ function effects(){
     stroke(255, 255, 255, 120);
     strokeWeight(strokeWidth);
     noFill();
+    //first arc
+    arc(width/5.6,height/4*2.8, size, size, radians(rotation + 180), radians(rotation + 150));
+    //second
     arc(width/2,height/2, size, size, radians(rotation), radians(rotation + 290));
+    //third arc
+    arc(width/6*5,height/6*5, size, size, radians(rotation + 50), radians(rotation + 320));
 }
