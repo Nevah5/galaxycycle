@@ -35,7 +35,7 @@ function backgroundcol(){
 function bgeffects(){
     let x, y;
     let r = width / 140 / width * mouseX;
-    let alpha = width / 10 / width * mouseX;
+    let alpha = 255 / width * mouseX - 100;
 
     strokeWeight(width / 240);
     stroke(255, 255, 255, alpha);
