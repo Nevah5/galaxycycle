@@ -5,10 +5,14 @@ let bgcolor = [
     (color1[1] + color2[1]) / 2,
     (color1[2] + color2[2]) / 2,
 ];
+let starsX = [];
+let starsY = [];
+let starsS = [];
 
 function setup() {
     createCanvas(windowWidth, windowHeight);
     angleMode(degrees);
+    stars();
 }
 
 function draw(){
@@ -37,6 +41,7 @@ function bgeffects(){
     stroke(255, 255, 255, alpha);
     noFill();
 
+    // ARCS
     // first arc spiral (near middle, counter-clockwise)
     let d = width / 3.5; // distance
     let a = radians(-260) / width * mouseX + radians(70); // angle
@@ -62,13 +67,22 @@ function bgeffects(){
     y = sin(a) * d + height / 2;
 
     arc(x, y, r, r, radians(280), radians(510));
+
+
+    // STARS
+    alpha = -255 / (width - width / 8) * mouseX + 90;
+    noStroke();
+    fill(255, 255, 255, alpha);
+    for(var i = 0; i < 10; i++){
+        circle(starsX[i], starsY[i], starsS[i]);
+    }
 }
 
 function sun(){
     noStroke();
     fill(250, 237, 203);
     let x;
-    
+
     let s = width / 30 / width * mouseX + width / 80; // size
     let alpha = 120 / width * mouseX + 40;
 
@@ -137,4 +151,12 @@ function effects(){
     arc(width / 2, height / 2, size, size, radians(rotation), radians(rotation + 290));
     //third arc
     arc(width / 6 * 5, height / 6 * 5, size, size, radians(rotation + 50), radians(rotation + 320));
+}
+
+function stars(){
+    for(var i = 0; i < 10; i++){
+        starsX.push(random(width));
+        starsY.push(random(height));
+        starsS.push(random(6, 10));
+    }
 }
