@@ -101,11 +101,12 @@ function mountain(){
 }
 
 function effects(){
-    let size = 70 / width * mouseX + 30;
-    let strokeWidth = (width/120-width/120*0.6) / width * mouseX + (width/120-width/120*0.4);
+    let size = width / 20 / width * mouseX + 30;
+    let strokeWidth = (width / 540) / width * mouseX + (width/120-width/120*0.4);
     let rotation = 360 / width * mouseX;
+    let alpha = width / 10 / width * mouseX - 30;
 
-    stroke(255, 255, 255, 120);
+    stroke(255, 255, 255, alpha);
     strokeWeight(strokeWidth);
     noFill();
     //first arc
@@ -115,5 +116,3 @@ function effects(){
     //third arc
     arc(width / 6 * 5, height / 6 * 5, size, size, radians(rotation + 50), radians(rotation + 320));
 }
-
-
