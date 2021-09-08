@@ -16,4 +16,4 @@
 - light effects in background
 - modified the background colors
 
-[v1.0.0]:(https://github.com/Noah-5555/galaxycycle/releases/tag/v1.0.0)
+[v1.0.0]: https://github.com/Noah-5555/galaxycycle/releases/tag/v1.0.0
