@@ -16,6 +16,7 @@ function draw(){
 
     backgroundcol();
     bgeffects();
+    sun();
     mountain();
     effects();
 }
@@ -24,6 +25,59 @@ function backgroundcol(){
     bgcolor[0] = color2[0] + ((color1[0] - color2[0]) / width * mouseX);
     bgcolor[1] = color2[1] + ((color1[1] - color2[1]) / width * mouseX);
     bgcolor[2] = color2[2] + ((color1[2] - color2[2]) / width * mouseX);
+}
+
+function bgeffects(){
+    strokeWeight(width / 240);
+    stroke(255, 255, 255, 120);
+    noFill();
+    let x = width / 2;
+    let y = height / 2;
+    let r = width / 140 / width * mouseX;
+
+    //first arc spiral (near middle, counter-clockwise)
+    let d = width / 3.5; //distance
+    let a = radians(-260) / width * mouseX + radians(70); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(0), radians(230));
+
+
+    //second arc spiral (counter-clockwise)
+    d = width / 6; //distance
+    a = radians(-180) / width * mouseX + radians(50); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(100), radians(330));
+
+
+    //third arc spiral (clockwise)
+    d = width / 3.5; //distance
+    a = radians(240) / width * mouseX + radians(120); //angle
+    x = cos(a) * d + width / 2;
+    y = sin(a) * d + height / 2;
+
+    arc(x, y, r, r, radians(280), radians(510));
+}
+
+function sun(){
+    stroke(250, 237, 203);
+    strokeWeight(1);
+    fill(250, 237, 203);
+    let x = width / 2;
+    let y = height / 2;
+    let s = width / 100 / width * mouseX + width / 80; //size
+
+    //first arc spiral (near middle, counter-clockwise)
+    let d = 800 / width * mouseX + 100; //distance
+    let a = radians(-140) / width * mouseX + radians(0); //angle
+    x = cos(a) * d + width/3*2.1;
+    y = sin(a) * d + height;
+
+    triangle(x - s, y, x, y - s * 2, x + s, y); //top part
+    triangle(x - s, y, x, y + s * 2, x + s, y); //bottom part
 }
 
 function mountain(){
@@ -62,35 +116,4 @@ function effects(){
     arc(width / 6 * 5, height / 6 * 5, size, size, radians(rotation + 50), radians(rotation + 320));
 }
 
-function bgeffects(){
-    strokeWeight(width / 240);
-    let x = width / 2;
-    let y = height / 2;
-    let r = width / 140 / width * mouseX;
 
-    //first arc spiral (near middle, counter-clockwise)
-    let d = width / 3.5; //distance
-    let a = radians(-260) / width * mouseX + radians(70); //angle
-    x = cos(a) * d + width / 2;
-    y = sin(a) * d + height / 2;
-
-    arc(x, y, r, r, radians(0), radians(230));
-
-
-    //second arc spiral (counter-clockwise)
-    d = width / 6; //distance
-    a = radians(-180) / width * mouseX + radians(50); //angle
-    x = cos(a) * d + width / 2;
-    y = sin(a) * d + height / 2;
-
-    arc(x, y, r, r, radians(100), radians(330));
-
-
-    //third arc spiral (clockwise)
-    d = width / 3.5; //distance
-    a = radians(240) / width * mouseX + radians(120); //angle
-    x = cos(a) * d + width / 2;
-    y = sin(a) * d + height / 2;
-
-    arc(x, y, r, r, radians(280), radians(510));
-}
