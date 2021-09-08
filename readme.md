@@ -1,5 +1,5 @@
 # Changelog
-## [Version 1.0.0] - v1.0.0
+## [v1.0.0] - Release
 ### Added
 + stars to the background
 + the moon
@@ -16,4 +16,4 @@
 - light effects in background
 - modified the background colors
 
-[Version 1.0.0]:(https://github.com/Noah-5555/galaxycycle/releases/tag/v1.0.0)
+[v1.0.0]:(https://github.com/Noah-5555/galaxycycle/releases/tag/v1.0.0)
