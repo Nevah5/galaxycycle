@@ -17,6 +17,7 @@ function draw(){
     backgroundcol();
     bgeffects();
     sun();
+    moon();
     mountain();
     effects();
 }
@@ -28,8 +29,7 @@ function backgroundcol(){
 }
 
 function bgeffects(){
-    let x = width / 2;
-    let y = height / 2;
+    let x, y;
     let r = width / 140 / width * mouseX;
     let alpha = width / 10 / width * mouseX;
 
@@ -67,8 +67,8 @@ function bgeffects(){
 function sun(){
     noStroke();
     fill(250, 237, 203);
-    let x = width / 2;
-    let y = height / 2;
+    let x;
+    
     let s = width / 30 / width * mouseX + width / 80; // size
     let alpha = 120 / width * mouseX + 40;
 
@@ -82,6 +82,24 @@ function sun(){
     fill(243, 213, 133, alpha); // darker
 
     triangle(x - s, y, x, y + s * 1.7, x + s, y);
+}
+
+function moon(){
+    noStroke();
+    let x, y;
+
+    // first arc spiral (near middle, counter-clockwise)
+    // let d = 900 / width * mouseX - 100; //  distance
+    let alpha = 100 * width / mouseX;
+    let d = 500;
+    let a = radians(-180) / width * mouseX + radians(-50); // angle
+    let s = -(width / 30) / width * mouseX + width / 20;
+    x = cos(a) * d + width/2;
+    y = sin(a) * d + height;
+
+    fill(250, 237, 203, alpha);
+
+    arc(x, y, s, s, radians(60), radians(240), CHORD);
 }
 
 function mountain(){
